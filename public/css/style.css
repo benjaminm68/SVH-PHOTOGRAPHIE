@@ -1,0 +1,21 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.padding{
+    padding: 1em 4em;
+}
+
+/* HEADER */
+
+header .menu nav a{
+    margin-right: 3.5em;
+}
