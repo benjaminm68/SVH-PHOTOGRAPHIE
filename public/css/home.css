@@ -1,0 +1,38 @@
+/* PAGE HOME */
+.home-banniere{
+    background: url(../uploads/home-bg.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 75vh;
+    filter: grayscale(1);
+    transition: all 0.5s ease-in-out;
+}
+
+.home-banniere:hover{
+    filter: none;
+}
+
+.home-banniere:hover .title{
+   display: none;
+   transition: all 0.5s ease-in-out;
+}
+
+.home-banniere .title{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: white;
+}
+
+.home-banniere .title h1{
+    font-size: 3.5em;
+}
+
+.home-banniere .title p{
+    font-size: 1.5em;
+    font-weight: 600;
+}
