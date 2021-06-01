@@ -7,6 +7,11 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/3997b565b3.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
             {#{{ encore_entry_link_tags('app') }}#}
         {% endblock %}
@@ -15,33 +20,20 @@
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
+
     <body>
     {% block header %}
-        <header>
-            <div class="menu d-flex justify-content-between align-items-center padding">
-                <div class="logo">
-                    <img src="http://placehold.it/50x50" alt="Logo svh photographie" class="logo-svh">
-                </div>
-                <nav class="d-flex">
-                    <a href="#">À propos</a>
-                    <a href="#" class="dropdown">Gallerie</a>
-                    <div class="dropdown-content d-none">
-                        <a href="">AJOUTER FOR</a>
-                    </div>
-                    <a href="#">Tarifs</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Accès client</a>
-                </nav>
-            </div>
-        </header>
+        {% include "header.html.twig" %}
     {% endblock %}
+    
     <main>
         {% block body %}{% endblock %}
     </main>
 
-    <footer>
-
-    </footer>
+ 
+    {% block footer %}
+        {% include "footer.html.twig" %}
+    {% endblock %}
     </body>
 
 
