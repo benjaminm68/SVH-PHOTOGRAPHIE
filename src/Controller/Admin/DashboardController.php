@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use App\Entity\Category;
+use App\Entity\Gallery;
+use App\Entity\Photo;
 use App\Entity\Shooting;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,9 +32,10 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-user', User::class);
+        yield MenuItem::linkToCrud('Clients', 'fa fa-user', User::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Category::class);
-        yield MenuItem::linkToCrud('Shootings', 'fa fa-tag', Shooting::class);
-        // yield MenuItem::linkToCrud('Images', 'fa fa-truck', Carrier::class);
+        yield MenuItem::linkToCrud('Galeries', 'fas fa-list', Gallery::class);
+        // yield MenuItem::linkToCrud('Shootings Client', 'fa fa-tag', Shooting::class);
+        yield MenuItem::linkToCrud('Photos', 'fas fa-images', Photo::class);
     }
 }

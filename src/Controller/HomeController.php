@@ -13,14 +13,6 @@ class HomeController extends AbstractController
      */
     public function home(): Response
     {
-        return $this->render('home/home.html.twig');
-    }
-
-    /**
-     * @Route("/galerie", name="gallery")
-     */
-    public function gallery(): Response
-    {
-        return $this->render('home/gallery.html.twig');
-    }
+        return $this->render('front/home.html.twig');
+    }  
 }

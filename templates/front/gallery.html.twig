@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}SVH-PHOTOGRAPHIE | Accueil
+{% endblock %}
+
+{% block body %}
+	<section class="gallery-home">
+		<h1>Galerie</h1>
+
+		<div class="gallery-home-content p-section d-flex justify-content-evenly flex-wrap">
+
+			{% for galerie in galeries %}
+
+				<div class="shadow-lg">
+					<div class="img-wrapper">
+					<a href="{{ path('gallery_detail', { 'slug': galerie.slug }) }}">
+						<img src="uploads/{{ galerie.cover }}" alt="">
+					</a>
+						<h2>{{ galerie.name }}</h2>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

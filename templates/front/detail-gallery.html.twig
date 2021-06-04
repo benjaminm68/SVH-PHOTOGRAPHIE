@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}SVH-PHOTOGRAPHIE | Accueil
+{% endblock %}
+
+{% block body %}
+	<h1>Galerie -
+		{{ galerie.name }}</h1>
+
+	<div class="gallery">
+		<div class="gallery__column">
+			{% for photo in galerie.photos %}
+
+				<a href="" class="gallery__link">
+					<figure class="gallery__thumb">
+						<img src="../uploads/{{ photo.path }}" class="gallery__image" alt="">
+						<figcaption class="gallery__caption">{{ photo.name }}</figcaption>
+					</figure>
+				</a>
+
+			{% endfor %}
+		</div>
+	</div> 
+
+{% endblock %}
