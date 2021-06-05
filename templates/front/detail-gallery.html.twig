@@ -4,22 +4,35 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Galerie -
-		{{ galerie.name }}</h1>
 
-	<div class="gallery">
-		<div class="gallery__column">
-			{% for photo in galerie.photos %}
+	<section class="gallery p-section">
 
-				<a href="" class="gallery__link">
-					<figure class="gallery__thumb">
-						<img src="../uploads/{{ photo.path }}" class="gallery__image" alt="">
-						<figcaption class="gallery__caption">{{ photo.name }}</figcaption>
-					</figure>
-				</a>
-
-			{% endfor %}
+		<div class="section-titre">
+			<h1>Galerie
+				{{ galerie.name }}</h1>
+			<h4>Galerie
+				{{ galerie.name }}</h4>
 		</div>
-	</div> 
+		<a href="{{ path('gallery') }}">Retourner à la galerie</a>
+
+		<div class="gallery-content">
+			<div class="gallery__column">
+				{% for photo in galerie.photos %}
+
+					{% if photo %}
+						<a href="" class="gallery__link">
+							<figure class="gallery__thumb">
+								<img src="../uploads/{{ photo.path }}" class="gallery__image" alt="">
+								<figcaption class="gallery__caption">{{ photo.name }}</figcaption>
+							</figure>
+						</a>
+
+					{% endif %}
+				{% else %}
+					<h2 class="text-center">Aucune photo à afficher pour votre recherche.<h2>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
 
 {% endblock %}
