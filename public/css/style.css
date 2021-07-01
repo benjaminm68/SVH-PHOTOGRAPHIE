@@ -53,6 +53,15 @@ header .menu nav a{
     margin-right: 3.5em;
 }
 
+.dropdown-menu{
+    background: rgba(0, 0, 0, .5);
+    padding: 0.2em 0.5em;
+}
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+
 /* PAGE HOME */
 .home-banniere{
     background: url(../uploads/home-bg.jpg);
@@ -351,6 +360,8 @@ footer a{
 .top-footer{
     display: flex;
     justify-content: space-around;
+    /* border-top: 1px solid #f96f0014;
+    margin-top: 1em; */
 }
 
 .top-footer .quick-link, .social-media, .contact-us{
@@ -435,3 +446,4 @@ footer a{
     color: #f96f00;
 }
 
+/* PAGE LOGIN */

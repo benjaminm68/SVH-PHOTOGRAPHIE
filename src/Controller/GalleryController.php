@@ -30,11 +30,13 @@ class GalleryController extends AbstractController
     public function detailGallery(GalleryRepository $galleryRepository, PhotoRepository $photoRepository, $slug): Response
     {
 
+        $galeries = $galleryRepository->findAll();
         $galerie = $galleryRepository->findOneBySlug($slug);
         
 
 
         return $this->render('front/detail-gallery.html.twig',[
+            'galeries' => $galeries,
             'galerie' => $galerie
         ]);
     }

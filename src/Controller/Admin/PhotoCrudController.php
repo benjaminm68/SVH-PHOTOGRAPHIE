@@ -22,7 +22,7 @@ class PhotoCrudController extends AbstractCrudController
             IdField::new('name'),
             AssociationField::new('galerie'),
             ImageField::new('path')
-            ->setBasePath(' uploads/')
+            ->setBasePath('uploads/')
             ->setUploadDir('public/uploads/')
         ->setUploadedFileNamePattern('[randomhash].[extension]')
         ->setRequired(false),

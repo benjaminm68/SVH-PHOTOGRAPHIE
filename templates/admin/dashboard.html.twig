@@ -1,9 +1,64 @@
 {% extends "@EasyAdmin/layout.html.twig" %}
 
+
+  
+
 {% block content %}
+{# CSS PANEL ADMIN #}
+<style>
+    .dashboard div{
+      padding: 1em 2em;
+      background: #878f9726;
+      color: white;
+  }
+
+  .dashboard div p:first-child{
+    color: #525668;
+  }
+
+  .dashboard div p:nth-child(2){
+    color: green;
+    font-weight: bold;
+    font-size: 2em;
+  }
+</style>
+{# FIN CSS PANEL ADMIN #}
+
+
 <div class="jumbotron">
-    <h1 class="display-4">Administration</h1>
-    <p> Bienvenue dans l'interface d'administration de votre site</p>
+    <h1 class="display-4 text-center">SVH - TABLEAU DE BORD</h1>
+    <hr>
+
+    <div class="container">
+      <div class="row d-flex justify-content-around dashboard">
+        <div class="rounded shadow-sm">
+          <p class="text-center text-uppercase font-weight-bold">Nombre de galerie(s)</p>
+          {% if galeries|length == 0 %}
+          <p style="color: red;" class="text-center">{{ galeries|length }}</p>
+          {% else %}
+            
+          <p class="text-center">{{ galeries|length }}</p>
+          {% endif %}
+        </div>
+        <div class="rounded shadow-sm">
+          <p class="text-center text-uppercase font-weight-bold">Nombre de photo(s)</p>
+          {% if photos|length == 0 %}
+          <p style="color: red;" class="text-center">{{ photos|length }}</p>
+          {% else %}
+            
+          <p class="text-center">{{ photos|length }}</p>
+          {% endif %}
+        </div>
+        <div class="rounded shadow-sm">
+          <p class="text-center text-uppercase font-weight-bold">Nombre de shooting(s)</p>
+          {% if shootings|length == 0 %}
+          <p style="color: red;" class="text-center">{{ shootings|length }}</p>
+          {% else %}
+            
+          <p class="text-center">{{ shootings|length }}</p>
+          {% endif %}
+        </div>
+      </div>
 </div>
 
 

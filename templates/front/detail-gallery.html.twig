@@ -13,24 +13,29 @@
 			<h4>Galerie
 				{{ galerie.name }}</h4>
 		</div>
-		<a href="{{ path('gallery') }}">Retourner à la galerie</a>
 
-		<div class="gallery-content">
-			<div class="gallery__column">
-				{% for photo in galerie.photos %}
+		<div class="container">
+			<a href="{{ path('gallery') }}" class="p-3">Retour</a>
+			<div class="row g-2">
 
-					{% if photo %}
-						<a href="" class="gallery__link">
-							<figure class="gallery__thumb">
-								<img src="../uploads/{{ photo.path }}" class="gallery__image" alt="">
-								<figcaption class="gallery__caption">{{ photo.name }}</figcaption>
-							</figure>
+			{% for photo in galerie.photos %}
+
+			{% if photo %}
+				<div class="col-6">
+					<div class="p-3">
+						<a href="../uploads/{{ photo.path }}" data-lightbox="example-set">
+							<img class="gallery__image" src="../uploads/{{ photo.path }}" alt=""/>
 						</a>
+					</div>
+				</div>
+			
+			{% endif %}
 
-					{% endif %}
-				{% else %}
-					<h2 class="text-center">Aucune photo à afficher pour votre recherche.<h2>
-				{% endfor %}
+			{% else %}
+				<h2 class="text-center">Aucune photo à afficher.</h2>
+				
+			{% endfor %}
+
 			</div>
 		</div>
 	</section>

@@ -1,0 +1,30 @@
+body{
+    font-family: 'Tajawal', sans-serif;
+    background-attachment: fixed;
+    background: repeating-linear-gradient( 
+45deg
+ , #191919 0%, #000000 10%, #101010 0%, #101010 50%) 0 / 15px 15px;
+}
+
+h1{
+    text-align: center;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+}
+
+form{
+    width: 35%;
+    background: #191919;
+    padding: 1.5em;
+}
+
+form label{
+    color: white;
+}
+
+form .form-bottom a{
+    font-size: small;
+}

@@ -23,7 +23,7 @@ class GalleryCrudController extends AbstractCrudController
             SlugField::new('slug')
                 ->setTargetFieldName('name'),
             ImageField::new('cover')
-                ->setBasePath(' uploads/')
+                ->setBasePath('uploads/')
                 ->setUploadDir('public/uploads/')
             ->setUploadedFileNamePattern('[randomhash].[extension]')
             ->setRequired(false),
