@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ClientRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -48,6 +50,26 @@ class Client implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $phone;
+
+    /**
+     * @var string The palin password
+     */
+    private $plainPassword = null;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Shooting::class, mappedBy="client")
+     */
+    private $shootings;
+
+    public function __construct()
+    {
+        $this->shootings = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->firstName.' '.$this->lastName;
+    }
 
     public function getId(): ?int
     {
@@ -162,6 +184,57 @@ class Client implements UserInterface
     public function setPhone(string $phone): self
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Shooting[]
+     */
+    public function getShootings(): Collection
+    {
+        return $this->shootings;
+    }
+
+    public function addShooting(Shooting $shooting): self
+    {
+        if (!$this->shootings->contains($shooting)) {
+            $this->shootings[] = $shooting;
+            $shooting->addClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeShooting(Shooting $shooting): self
+    {
+        if ($this->shootings->removeElement($shooting)) {
+            $shooting->removeClient($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get the palin password
+     *
+     * @return  string
+     */ 
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * Set the palin password
+     *
+     * @param  string  $plainPassword  The palin password
+     *
+     * @return  self
+     */ 
+    public function setPlainPassword(string $plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
 
         return $this;
     }

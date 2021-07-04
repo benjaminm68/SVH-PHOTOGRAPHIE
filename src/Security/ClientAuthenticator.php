@@ -95,7 +95,7 @@ class ClientAuthenticator extends AbstractFormLoginAuthenticator implements Pass
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate("home_client"));
+        return new RedirectResponse($this->urlGenerator->generate("client_shooting"));
     }
 
     protected function getLoginUrl()

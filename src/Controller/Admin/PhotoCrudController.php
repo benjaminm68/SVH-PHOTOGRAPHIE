@@ -19,9 +19,9 @@ class PhotoCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('name'),
+            IdField::new('name', 'Nom'),
             AssociationField::new('galerie'),
-            ImageField::new('path')
+            ImageField::new('path', 'Image')
             ->setBasePath('uploads/')
             ->setUploadDir('public/uploads/')
         ->setUploadedFileNamePattern('[randomhash].[extension]')

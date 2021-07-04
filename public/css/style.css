@@ -54,7 +54,7 @@ header .menu nav a{
 }
 
 .dropdown-menu{
-    background: rgba(0, 0, 0, .5);
+    background: #101010;
     padding: 0.2em 0.5em;
 }
 

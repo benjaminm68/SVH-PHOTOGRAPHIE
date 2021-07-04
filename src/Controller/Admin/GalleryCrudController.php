@@ -19,10 +19,10 @@ class GalleryCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name'),
-            SlugField::new('slug')
+            TextField::new('name', 'Nom'),
+            SlugField::new('slug')->hideOnIndex()
                 ->setTargetFieldName('name'),
-            ImageField::new('cover')
+            ImageField::new('cover', 'Photo de couverture')
                 ->setBasePath('uploads/')
                 ->setUploadDir('public/uploads/')
             ->setUploadedFileNamePattern('[randomhash].[extension]')

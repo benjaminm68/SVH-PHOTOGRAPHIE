@@ -1,26 +1,33 @@
 <header class="shadow-lg" style="background: #101010;">
 	<div class="menu d-flex justify-content-between align-items-center p-header position-relative">
 		<div class="logo">
-		<a href="{{ path('home') }}">
-			<img src="{{ asset('uploads/svh-logo1.png') }}" height="100px" alt="Logo svh photographie" class="logo-svh">
-		</a>
+			<a href="{{ path('home') }}">
+				<img src="{{ asset('uploads/svh-logo1.png') }}" height="100px" alt="Logo svh photographie" class="logo-svh">
+			</a>
 		</div>
 		<nav class="d-flex">
-		<div class="dropdown">
-                    <a href="{{ path('gallery') }}" class="dropdown-toggle" data-toggle="dropdown">Galerie</a>
-                    <div class="dropdown-menu">
+			<div class="dropdown">
+				<a href="{{ path('gallery') }}" class="dropdown-toggle" data-toggle="dropdown">Galerie</a>
+				<div class="dropdown-menu">
 					{% if galeries is defined %}
-                        {% for galerie in galeries %}
-								<a href="{{ path('gallery_detail', { 'slug': galerie.slug }) }}">{{ galerie.slug }}</a></br>
-						{% endfor %}
-                    </div>
-					
-					{% endif %}
-                </div>
-			 
-			<a href="#">Tarifs</a>
-			<a href="#">Contact</a>
+						{% for galerie in galeries %}
+							<a href="{{ path('gallery_detail', { 'slug': galerie.slug }) }}">{{ galerie.slug }}</a></br>
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+
+		<a href="#">Tarifs</a>
+		<a href="#">Contact</a>
+		
+
+		{% if app.user.firstName is defined %}
+			<a href="{{ path('client_shooting') }}" style="color: #f96f00; border: 1px solid #f96f00; padding: 0.5em;">Mes shootings</a>
+			<a href="{{ path('app_logout_client') }}"><i class="fas fa-user-times"></i></a>
+		
+		{% else %}
 			<a href="{{ path('app_login_client') }}">Accès client</a>
-		</nav>
-	</div>
-</header>
+		{% endif %}
+
+	</nav>
+</div></header>

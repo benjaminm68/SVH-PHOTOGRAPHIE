@@ -1,20 +1,55 @@
-{% extends "base.html.twig" %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://kit.fontawesome.com/3997b565b3.js" crossorigin="anonymous"></script>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+		<title>Mes shootings</title>
+	</head>
+	<body></body>
+</html>
 
-{% block title %}SVH-PHOTOGRAPHIE | Client
-{% endblock %}
 
 {% block body %}
 	<section class="gallery-home p-section">
 		<div class="section-titre">
-                <h1>Profil Client</h1>
-                <h4>Profil Client</h4>
-            </div>
+			<h1>Mes shootings</h1>
+			<h4>Mes shootings</h4>
+		</div>
 
 		<div class="container">
-        
-            <h1>Bonjour {{ app.user.firstName }}</h1>
 
-            
-        </div>
+			<div class="d-flex justify-content-between align-items-center">
+				<div>
+					<h2 class="fs-5" style="color: white;">Bonjour
+						{{ app.user.firstName }}
+						{{ app.user.lastName }}<i class="far fa-hand-paper" style="margin-left: 0.5em; transform: rotate(20deg); color: #f96f00;"></i></h2>
+					<p style="color: white; font-size: 14px;">Vous trouverez ci-dessous vos shootings</p>
+				</div>
+
+				<div>
+					<a href="{{ path('home') }}">Déconnexion</a>
+				</div>
+			</div>
+			<hr style="color: white;">
+
+			<div class="shooting-content d-flex justify-content-around">
+				{% for shooting in app.user.shootings %}
+
+					<div class="shadow-lg">
+						<div class="img-wrapper">
+							<a href="{{ path('gallery_detail', { 'slug': shooting.slug }) }}">
+								<img src="../uploads/{{ shooting.cover }}" alt="">
+							</a>
+							<h2>{{ shooting.name }}</h2>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+
+		</div>
 	</section>
 {% endblock %}
